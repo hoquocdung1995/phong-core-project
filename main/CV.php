@@ -1,19 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+    $_userName = 'dho43';
+    include('Controller/FirstPhp.php');
+?>
 <html>
 <head>
 
-	<title>Phat Nguyen Bao | Java Developer, Associate</title>
+	<title>Phat Nguyen Bao | Java Developer, Associate | phatnb93@gmail.com</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 
 	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset-fonts-grids/reset-fonts-grids.css" media="all" /> 
-	<link rel="stylesheet" type="text/css" href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/css/resume.css" media="all" />
+	<link rel="stylesheet" type="text/css" href="css/resume.css" media="all" />
 
 </head>
 <body>
+
 <div id="doc2" class="yui-t7">
 	<div id="inner">
+	
 		<div id="hd">
 			<div class="yui-gc">
 				<div class="yui-u first">
@@ -41,7 +48,14 @@
 						</div>
 						<div class="yui-u">
 							<p class="enlarge">
-								This block use to write about main objective.
+								<?php
+                                if ($resultSqlOjectQuery->num_rows > 0) {
+                                    // output data of each row
+                                    while($row = $resultSqlOjectQuery->fetch_assoc()) {
+                                        echo $row["TEXT_INFO"];
+                                    }
+                                }
+								?>
 							</p>
 						</div>
 					</div><!--// .yui-gf -->
@@ -54,17 +68,17 @@
 
 								<div class="talent">
 									<h2>Java Programming</h2>
-									<p>Use Java language version 7 to implement requirement.</p>
+									<p><?php echo htmlentities($value_Java); ?></p>
 								</div>
 
 								<div class="talent">
 									<h2>Database</h2>
-									<p>Can use MSSQL and Oracle Database.</p>
+                                    <p><?php echo htmlentities($value_Data); ?></p>
 								</div>
 
 								<div class="talent">
 									<h2>System Design</h2>
-									<p>Design structure of system follow requirement.</p>
+                                    <p><?php echo htmlentities($value_Sys); ?></p>
 								</div>
 						</div>
 					</div><!--// .yui-gf -->
@@ -118,6 +132,8 @@
 
 						</div><!--// .yui-u -->
 					</div><!--// .yui-gf -->
+
+
 					<div class="yui-gf last">
 						<div class="yui-u first">
 							<h2>Education</h2>
@@ -127,13 +143,19 @@
 							<h3>Information System &mdash; <strong>7.0 GPA</strong> </h3>
 						</div>
 					</div><!--// .yui-gf -->
+
+
 				</div><!--// .yui-b -->
 			</div><!--// yui-main -->
 		</div><!--// bd -->
+
 		<div id="ft">
 			<p>Phat Nguyen Bao &mdash; <a href="mailto:name@yourdomain.com">phatnb93@gmail.com</a> &mdash; (+84) 938 814 685</p>
 		</div><!--// footer -->
+
 	</div><!-- // inner -->
+
+
 </div><!--// doc -->
 </body>
 </html>

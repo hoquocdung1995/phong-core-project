@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'controllers/functionsUtils.php';
+include 'controllers/emailUtils.php';
 
 if(isset($_SESSION['username']) && !empty($_SESSION['username']) && isset($_SESSION['retriev_pass'])) {
     header("Location: administrator.php"); /* Redirect browser */
